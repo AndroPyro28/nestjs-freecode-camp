@@ -23,9 +23,7 @@ export async function createUser({email, firstname, lastname, password}: SignupD
 export async function findUserByEmail(email:string):Promise<User| null> {
     try {
         const currentUser = await user.findUnique({
-            where: {
-                email
-            }
+            where: {email}
         });
         return currentUser;
     } catch (error) {
@@ -36,9 +34,7 @@ export async function findUserByEmail(email:string):Promise<User| null> {
 export async function findUserById(id: number):Promise<User| null> {
     try {
         const currentUser = await user.findUnique({
-            where: {
-                id
-            }
+            where: {id}
         });
         return currentUser;
     } catch (error) {

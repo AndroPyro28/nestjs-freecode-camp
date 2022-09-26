@@ -10,6 +10,7 @@ import { createUser, findUserByEmail, findUserById } from 'models';
 import { SigninDto, SignupDto } from './dto';
 @Injectable()
 export class AuthService {
+  [x: string]: any;
   constructor(private jwt: JwtService) {}
 
   async signup(body: SignupDto): Promise<SignupDto> {
@@ -53,11 +54,11 @@ export class AuthService {
     });
   }
 
-  async findUserByIdAndEmail({ id, email }: { id: number; email: string }) {
-      const user = await findUserById(id);
-      if (!user) {
-        throw new UnauthorizedException('You are unauthorized');
-      }
-      return user;
-  }
+//   async findUserById( id:number) { //
+//       const user = await findUserById(id);
+//       if (!user) {
+//         throw new UnauthorizedException('You are unauthorized');
+//       }
+//       return user;
+//   }
 }
