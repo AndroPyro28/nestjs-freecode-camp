@@ -5,7 +5,10 @@ import {AppModule} from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe({
+    transform: true,
+    forbidNonWhitelisted: true,
     whitelist: true // remove those field who are not defined and validated in dtos
+    
   }))
   app.setGlobalPrefix('api')
   await app.listen(3001);
