@@ -1,6 +1,6 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { findUserById } from 'models';
+import { findUserById } from '../../../models';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { AuthService } from '../auth.service';
 
@@ -17,6 +17,7 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
   async validate({ id, email }: { id: number; email: string }) {
     const user = await findUserById(id);
     if (!user) throw new ForbiddenException('session expired');
+    delete user.password;
     return user;
   }
 }

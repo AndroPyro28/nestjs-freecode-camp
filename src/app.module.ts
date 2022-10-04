@@ -5,6 +5,8 @@ import { BookmarkModule } from './bookmark/bookmark.module';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [AuthModule, UserModule, BookmarkModule, ConfigModule.forRoot({})],
+  imports: [AuthModule, UserModule, BookmarkModule, ConfigModule.forRoot({
+    isGlobal: true
+  })],
 })
 export class AppModule {}
