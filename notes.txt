@@ -1,0 +1,27 @@
+NEST JS WEBTOKEN
+> npm i --save @nestjs/passport passport passport-local
+> npm i --save-dev @types/passport-local
+> npm i --save @nestjs/jwt passport-jwt
+> npm i --save-dev @types/passport-jwt
+
+GENERATE / SCAFOLD TEMPLATE
+
+> nest                                          -- show command help
+> nest g mo prisma                              -- make module
+> nest g co auth --no-spec                      -- make controller w/o test file
+> nest g s auth --no-spec                       -- name service w/o test file
+
+
+> VALIDATION / DTO
+
+> npm i class-validator class-transformer
+
+HASHING
+> npm i bcrypt @types/bcrypt
+
+> npm install @prisma/client
+> npx prisma init // to initialize a prisma
+
+Customizing migrations
+> npx prisma migrate dev --create-only 
+> npx prisma db push                       + --accept-data-loss
